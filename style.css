@@ -1,0 +1,212 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('./font/Inter-VariableFont_slnt\,wght.ttf');
+}
+@font-face {
+    font-family: 'Orbitron';
+    src: url('./font/Orbitron-VariableFont_wght.ttf');
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --color-red-4: #ff8787;
+    --color-red-6: #fa5252;
+    --color-orange-3: #ffc078;
+    --color-orange-4: #ffa94d;
+    --color-orange-5: #ff922b;
+    --color-orange-6: #fd7e14;
+    --color-orange-7: #fd7e14;
+    --color-teal-3: #63e6be;
+    --color-lime-4: #a9e34b;
+    --color-lime-5: #94d82d;
+    --color-white-1: #f8f9fa;
+    --text-color-dark: #212529;
+    --color-black: #212529;
+    --border-solid: 2px solid var(--color-black);
+    --border-dashed: 2px dashed var(--color-black);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    height: 100dvh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    justify-content: flex-start;
+}
+
+header {
+    font-family: 'Orbitron';
+    font-size: 3rem;
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--color-orange-4);
+    margin-bottom: 1em;
+    font-weight: 500;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-grow: 1;
+}
+
+.board {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 0 8px var(--color-orange-5);
+    border-radius: 0.8rem;
+    max-width: 40rem;
+    min-width: min(25rem, 95dvw);
+    flex-basis: 16rem;
+    text-align: center;
+}
+.score {
+    text-align: left;
+    padding: 1.2rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.state {
+    font-size: 1.125rem;
+    font-weight: 500;
+    min-width: 5em;
+    transition: all 0.2s;
+}
+
+.choose {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 4rem;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 0.8rem;
+    border: var(--border-dashed);
+    transition: border 0.5s;
+    transition: all 0.35s;
+}
+
+.choose.active {
+    border: var(--border-solid);
+}
+
+.player {
+    padding: 1.6rem;
+}
+
+.choose.win {
+    background-color: var(--color-lime-4);
+}
+
+.player h2 {
+    font-size: 1.2em;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.player:first-child {
+    border-bottom: var(--border-solid);
+}
+
+.choice {
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.choice div {
+    width: 1.8em;
+    height: 1.8em;
+    padding: 5px;
+    border: var(--border-dashed);
+    border-radius: 5px;
+    background-color: var(--color-orange-4);
+}
+
+.choice .selected {
+    background-color: var(--color-orange-6);
+    border: var(--border-solid);
+}
+
+.player-user .choice div:hover {
+    border: var(--border-solid);
+    cursor: pointer;
+    background-color: var(--color-orange-3);
+}
+
+.winner {
+    justify-content: center;
+    padding: 2rem 5rem;
+    background-color: var(--color-teal-3);
+    border-radius: 0.5rem;
+    border: var(--border-solid);
+    z-index: 2;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+dialog {
+    transition: all 0.5s;
+}
+.winner button {
+    background: #fff;
+    padding: 1em 2em;
+    border: var(--border-solid);
+    border-radius: 5px;
+}
+
+.winner button:hover {
+    background-color: var(--color-white-1);
+}
+
+dialog::backdrop {
+    backdrop-filter: blur(10px);
+}
+
+@media screen and (max-width: 780px) {
+    html {
+        font-size: 12;
+    }
+    .choice {
+        width: 100dvw;
+        font-size: 3.1em;
+        gap: 0;
+        justify-content: space-around;
+    }
+    .choose {
+        font-size: 3rem;
+    }
+    header {
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+}
